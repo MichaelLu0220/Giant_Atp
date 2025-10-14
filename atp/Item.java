@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Item {
 	private String wareHouse;
 	private String itemId;
+	private List<String> substituteItemIds;
 	List<ItemSupply> supplies;
 	
 	public Item() {
@@ -24,13 +25,26 @@ public class Item {
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
+	public List<String> getSubstituteItemIds() {
+        return substituteItemIds;
+    }
+    
+    public void setSubstituteItemIds(List<String> substituteItemIds) {
+        this.substituteItemIds = substituteItemIds;
+    }
 	public List<ItemSupply> getSupplies() {
 		return supplies;
 	}
 	public void setSupplies(List<ItemSupply> supplies) {
 		this.supplies = supplies;
 	}
-	
+	/**
+     * 判斷是否有替代品
+     */
+    @JsonIgnore
+    public boolean hasSubstitute() {
+        return substituteItemIds != null && !substituteItemIds.isEmpty();
+    }
 	@JsonIgnore
 	public String getItemKey() {
 		return wareHouse + itemId;

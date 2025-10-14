@@ -329,4 +329,59 @@ public class AtpProfileService {
 	    orderLine.addAtpAlloc(alloc);
 	    newSupply.addAtpAlloc(alloc);
 	}
+	
+	/**
+	 * 使用替代品和替代倉庫進行分配
+	 * 邏輯：
+	 * 1. 先嘗試主品項（所有倉庫）
+	 * 2. 如果不夠且有替代品 → 嘗試替代品（所有倉庫）
+	 * 3. 如果還是不夠 → 結束（等 New Shipment）
+	 * 
+	 * @param order 訂單
+	 * @param orderLine 訂單行
+	 */
+	public void allocateAtpSubstitutes(
+	        Order order, OrderLine orderLine, int maxEarlyDays, int maxLateDays) {
+	    
+	    String originalWarehouse = orderLine.getWareHouse();
+	    String originalItemId = orderLine.getItemId();
+	    
+	    if (orderLine.getRequestedWarehouse() == null) {
+	        orderLine.setRequestedWarehouse(originalWarehouse);
+	    }
+	    if (orderLine.getOriginalItemId() == null) {
+	        orderLine.setOriginalItemId(originalItemId);
+	    }
+	    
+	    // Step 1: 嘗試主品項
+//	    allocateAtpBackwardForwardWithAlternate(order, orderLine, maxEarlyDays, maxLateDays);
+//	    
+//	    if (orderLine.isFulfilled()) {
+//	        return;
+//	    }
+	    int priority = order.getcustPriority();
+	    
+	    // Step 2: 查詢替代品
+	    Item primaryItem = findItem(originalWarehouse + originalItemId);
+	    
+	    if (primaryItem == null || !primaryItem.hasSubstitute()) {
+	        return;
+	    }
+	    
+	    // Step 3: 嘗試替代品	    
+	    List<String> substituteItemIds = primaryItem.getSubstituteItemIds();
+	    for (String substituteItemId : substituteItemIds) {
+	        orderLine.setWareHouse(originalWarehouse);
+	        orderLine.setItemId(substituteItemId);
+	        if(priority==3) {
+	        	allocateAtpBackwardForwardUnlimitedWithAlternate(order, orderLine);
+	        }
+	        else {
+	        	allocateAtpBackwardForwardWithAlternate(order, orderLine, maxEarlyDays, maxLateDays);
+	        }
+	        if (orderLine.isFulfilled()) {
+	            break;  // 已滿足，停止
+	        }
+	    }
+	}
 }

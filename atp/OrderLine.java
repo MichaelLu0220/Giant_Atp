@@ -14,6 +14,7 @@ public class OrderLine {
 	private int allocQty;
 	private Date promiseDate;
 	private int promiseQty;
+	private String originalItemId;  // 原始請求的品項
 	private List<AtpAlloc> atpAllocs = new ArrayList<>();
 	
 	public OrderLine() {
@@ -52,11 +53,22 @@ public class OrderLine {
 	public void setOrderQty(int orderQty) {
 		this.orderQty = orderQty;
 	}
+	public String getOriginalItemId() {
+	    return originalItemId;
+	}
+	public void setOriginalItemId(String originalItemId) {
+	    this.originalItemId = originalItemId;
+	}
 	public List<AtpAlloc> getAtpAllocs() {
 		return atpAllocs;
 	}
 	public void setAtpAllocs(List<AtpAlloc> atpAllocs) {
 		this.atpAllocs = atpAllocs;
+	}
+	
+	@JsonIgnore
+	public boolean isFromSubstituteItem() {
+	    return originalItemId != null && !itemId.equals(originalItemId);
 	}
 	
 	@JsonIgnore
