@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:RulePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>dailyscheduling</name>
+  <uuid>cbf85947-a547-4d41-a78a-d3bfc22e7a04</uuid>
+</ilog.rules.studio.model.base:RulePackage>

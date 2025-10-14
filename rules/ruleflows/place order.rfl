@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>place order</name>
+  <uuid>cc0891b7-7d77-4203-a652-a6ae8aba6b30</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0"/>
+      <ActionTask Identifier="Initialize ATP profile">
+        <Actions Language="bal"><![CDATA[initialize 'the ATP profile' ;]]></Actions>
+      </ActionTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Forward allocate ATP" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="409e9b5d-0b9b-4ad3-af43-3c6006d3791d"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Backward allocate ATP" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="f9afdd31-9dca-4ac4-ada0-00f6ea32a6f9"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Backward then forward allocate ATP with delivery window" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="c332792b-941f-4751-90bb-5f16c1416240"/>
+        </RuleList>
+      </RuleTask>
+      <StopTask Identifier="task_5"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_0"/>
+      <TaskNode Identifier="node_1" Task="Initialize ATP profile"/>
+      <TaskNode Identifier="node_2" Task="Forward allocate ATP"/>
+      <TaskNode Identifier="node_3" Task="Backward allocate ATP"/>
+      <TaskNode Identifier="node_4" Task="Backward then forward allocate ATP with delivery window"/>
+      <TaskNode Identifier="node_5" Task="task_5"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_1"/>
+      <Transition Identifier="transition_1" Source="node_1" Target="node_2"/>
+      <Transition Identifier="transition_2" Source="node_1" Target="node_3">
+        <Conditions Language="bal"><![CDATA['the allocating policy' is "backward"]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_3" Source="node_1" Target="node_4">
+        <Conditions Language="bal"><![CDATA['the allocating policy' is "backward-forward"]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_4" Source="node_2" Target="node_5"/>
+      <Transition Identifier="transition_5" Source="node_3" Target="node_5"/>
+      <Transition Identifier="transition_6" Source="node_4" Target="node_5"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_2#height">59.80272</Data>
+      <Data Name="node_4#width">256.33228</Data>
+      <Data Name="node_1#height">60.70096</Data>
+      <Data Name="node_3#height">58.724106</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_4#height">54.79799</Data>
+      <Data Name="node_5#name">node_2</Data>
+      <Data Name="node_2#name">node_1</Data>
+      <Data Name="node_5#height">22.0</Data>
+      <Data Name="node_2#width">160.31891</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_3#y">211.60233</Data>
+      <Data Name="node_4#x">128.16614</Data>
+      <Data Name="node_4#y">211.60233</Data>
+      <Data Name="node_5#x">379.49655</Data>
+      <Data Name="node_5#y">312.50366</Data>
+      <Data Name="node_5#width">22.0</Data>
+      <Data Name="node_0#x">379.49655</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_1#x">379.49655</Data>
+      <Data Name="node_1#y">101.35048</Data>
+      <Data Name="node_2#x">614.8247</Data>
+      <Data Name="node_2#y">211.60233</Data>
+      <Data Name="node_3#x">395.49878</Data>
+      <Data Name="node_1#name">node_3</Data>
+      <Data Name="node_3#width">168.33301</Data>
+      <Data Name="node_4#name">node_1</Data>
+      <Data Name="node_1#width">153.35284</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_3#name">node_1</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties/>
+</Ruleflow></rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>
