@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Low priority assignment</name>
+  <uuid>63c5a03d-1b89-43b4-a3fa-4dba40fb9573</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+    set 'NewOrder' to an order in the arrived orders of 'Order overview'
+            where the cust priority of this order equals 1 ;
+then
+    'Substitute items services' .allocateWithSubstitution ( 'NewOrder' ) ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

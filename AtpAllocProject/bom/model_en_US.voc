@@ -1,0 +1,201 @@
+# Vocabulary Properties
+uuid = 8fb2f5dd-f805-44a8-94d4-0f8b391e55c8
+
+# atp.AtpAlloc
+atp.AtpAlloc#concept.label = atp alloc
+atp.AtpAlloc.allocQty#phrase.action = set the alloc qty of {this} to {alloc qty}
+atp.AtpAlloc.allocQty#phrase.navigation = {alloc qty} of {this}
+atp.AtpAlloc.itemId#phrase.action = set the item id of {this} to {item id}
+atp.AtpAlloc.itemId#phrase.navigation = {item id} of {this}
+atp.AtpAlloc.orderDate#phrase.action = set the order date of {this} to {order date}
+atp.AtpAlloc.orderDate#phrase.navigation = {order date} of {this}
+atp.AtpAlloc.orderNo#phrase.action = set the order no of {this} to {order no}
+atp.AtpAlloc.orderNo#phrase.navigation = {order no} of {this}
+atp.AtpAlloc.supplyDate#phrase.action = set the supply date of {this} to {supply date}
+atp.AtpAlloc.supplyDate#phrase.navigation = {supply date} of {this}
+atp.AtpAlloc.supplyType#phrase.action = set the supply type of {this} to {supply type}
+atp.AtpAlloc.supplyType#phrase.navigation = {supply type} of {this}
+atp.AtpAlloc.warehouse#phrase.action = set the warehouse of {this} to {warehouse}
+atp.AtpAlloc.warehouse#phrase.navigation = {warehouse} of {this}
+
+# atp.AtpProfileService
+atp.AtpProfileService#concept.label = atp profile service
+atp.AtpProfileService.initialize()#phrase.action = initialize {this}
+atp.AtpProfileService.items#phrase.action = set the items of {this} to {item}
+atp.AtpProfileService.items#phrase.navigation = {item} of {this}
+
+# atp.AtpUpdateService
+atp.AtpUpdateService#concept.label = atp update service
+atp.AtpUpdateService.addShipmentRequirement(atp.ShipmentRequirement)#phrase.action = add {0} to the shipment requirements of {this}
+atp.AtpUpdateService.arrivedOrders#phrase.action = set the arrived orders of {this} to {arrived order}
+atp.AtpUpdateService.arrivedOrders#phrase.navigation = {arrived order} of {this}
+atp.AtpUpdateService.fulfilledOrderLineNumber#phrase.action = set the fulfilled order line number of {this} to {fulfilled order line number}
+atp.AtpUpdateService.fulfilledOrderLineNumber#phrase.navigation = {fulfilled order line number} of {this}
+atp.AtpUpdateService.fulfilledOrderNumber#phrase.action = set the fulfilled order number of {this} to {fulfilled order number}
+atp.AtpUpdateService.fulfilledOrderNumber#phrase.navigation = {fulfilled order number} of {this}
+atp.AtpUpdateService.orderLineNumber#phrase.action = set the order line number of {this} to {order line number}
+atp.AtpUpdateService.orderLineNumber#phrase.navigation = {order line number} of {this}
+atp.AtpUpdateService.orderNumber#phrase.action = set the order number of {this} to {order number}
+atp.AtpUpdateService.orderNumber#phrase.navigation = {order number} of {this}
+atp.AtpUpdateService.orderNumberHigh#phrase.action = set the order number high of {this} to {order number high}
+atp.AtpUpdateService.orderNumberHigh#phrase.navigation = {order number high} of {this}
+atp.AtpUpdateService.orderNumberLow#phrase.action = set the order number low of {this} to {order number low}
+atp.AtpUpdateService.orderNumberLow#phrase.navigation = {order number low} of {this}
+atp.AtpUpdateService.orderNumberMiddle#phrase.action = set the order number middle of {this} to {order number middle}
+atp.AtpUpdateService.orderNumberMiddle#phrase.navigation = {order number middle} of {this}
+atp.AtpUpdateService.shipmentRequirements#phrase.action = set the shipment requirements of {this} to {shipment requirement}
+atp.AtpUpdateService.shipmentRequirements#phrase.navigation = {shipment requirement} of {this}
+
+# atp.DateUtil
+atp.DateUtil#concept.label = date util
+
+# atp.FieldNameDomain
+atp.FieldNameDomain#concept.label = field name domain
+atp.FieldNameDomain.CREATEDATE#instance.label = CREATEDATE
+atp.FieldNameDomain.CUSTACCOUNT#instance.label = CUSTACCOUNT
+atp.FieldNameDomain.ORDERNO#instance.label = ORDERNO
+atp.FieldNameDomain.PRIORITY#instance.label = PRIORITY
+atp.FieldNameDomain.QTY#instance.label = QTY
+atp.FieldNameDomain.REQDATE#instance.label = REQDATE
+atp.FieldNameDomain.displayName#phrase.navigation = {display name} of {this}
+
+# atp.Item
+atp.Item#concept.label = item
+atp.Item.itemId#phrase.action = set the item id of {this} to {item id}
+atp.Item.itemId#phrase.navigation = {item id} of {this}
+atp.Item.itemKey#phrase.action = set the item key of {this} to {item key}
+atp.Item.itemKey#phrase.navigation = {item key} of {this}
+atp.Item.supplies#phrase.action = set the supplies of {this} to {supply}
+atp.Item.supplies#phrase.navigation = {supply} of {this}
+atp.Item.wareHouse#phrase.action = set the ware house of {this} to {ware house}
+atp.Item.wareHouse#phrase.navigation = {ware house} of {this}
+
+# atp.ItemSubstitutionService
+atp.ItemSubstitutionService#concept.label = item substitution service
+atp.ItemSubstitutionService.allocateWithSubstitution(atp.Order)#phrase.action = {this}.allocateWithSubstitution({0})
+atp.ItemSubstitutionService.allocateWithSubstitution(atp.Order)#phrase.navigation = {this}.allocateWithSubstitution({0})
+
+# atp.ItemSupply
+atp.ItemSupply#concept.label = item supply
+atp.ItemSupply.allocQty#phrase.navigation = {alloc qty} of {this}
+atp.ItemSupply.atpAllocs#phrase.action = set the atp allocs of {this} to {atp alloc}
+atp.ItemSupply.atpAllocs#phrase.navigation = {atp alloc} of {this}
+atp.ItemSupply.exhausted#phrase.action = make it {exhausted} that {this} is exhausted
+atp.ItemSupply.exhausted#phrase.navigation = {this} is exhausted
+atp.ItemSupply.remainQty#phrase.action = set the remain qty of {this} to {remain qty}
+atp.ItemSupply.remainQty#phrase.navigation = {remain qty} of {this}
+atp.ItemSupply.supplyDate#phrase.action = set the supply date of {this} to {supply date}
+atp.ItemSupply.supplyDate#phrase.navigation = {supply date} of {this}
+atp.ItemSupply.supplyQty#phrase.action = set the supply qty of {this} to {supply qty}
+atp.ItemSupply.supplyQty#phrase.navigation = {supply qty} of {this}
+atp.ItemSupply.type#phrase.action = set the type of {this} to {type}
+atp.ItemSupply.type#phrase.navigation = {type} of {this}
+
+# atp.Order
+atp.Order#concept.label = order
+atp.Order.calculatePromise()#phrase.action = calculatePromise {this}
+atp.Order.createDate#phrase.action = set the create date of {this} to {create date}
+atp.Order.createDate#phrase.navigation = {create date} of {this}
+atp.Order.custAccount#phrase.action = set the cust account of {this} to {cust account}
+atp.Order.custAccount#phrase.navigation = {cust account} of {this}
+atp.Order.custPriority#phrase.action = set the cust priority of {this} to {cust priority}
+atp.Order.custPriority#phrase.navigation = {cust priority} of {this}
+atp.Order.fulfilled#phrase.action = make it {fulfilled} that {this} is fulfilled
+atp.Order.fulfilled#phrase.navigation = {this} is fulfilled
+atp.Order.orderLines#phrase.action = set the order lines of {this} to {order line}
+atp.Order.orderLines#phrase.navigation = {order line} of {this}
+atp.Order.orderNo#phrase.action = set the order no of {this} to {order no}
+atp.Order.orderNo#phrase.navigation = {order no} of {this}
+atp.Order.promiseDate#phrase.action = set the promise date of {this} to {promise date}
+atp.Order.promiseDate#phrase.navigation = {promise date} of {this}
+atp.Order.requestDate#phrase.action = set the request date of {this} to {request date}
+atp.Order.requestDate#phrase.navigation = {request date} of {this}
+
+# atp.OrderLine
+atp.OrderLine#concept.label = order line
+atp.OrderLine.allocQty#phrase.action = set the alloc qty of {this} to {alloc qty}
+atp.OrderLine.allocQty#phrase.navigation = {alloc qty} of {this}
+atp.OrderLine.allowSubstitution#phrase.action = make it {allow substitution} that {this} is allow substitution
+atp.OrderLine.allowSubstitution#phrase.navigation = {this} is allow substitution
+atp.OrderLine.alternativeItems#phrase.action = set the alternative items of {this} to {alternative item}
+atp.OrderLine.alternativeItems#phrase.navigation = {alternative item} of {this}
+atp.OrderLine.alternativeWarehouses#phrase.action = set the alternative warehouses of {this} to {alternative warehouse}
+atp.OrderLine.alternativeWarehouses#phrase.navigation = {alternative warehouse} of {this}
+atp.OrderLine.assignedItem#phrase.action = set the assigned item of {this} to {assigned item}
+atp.OrderLine.assignedItem#phrase.navigation = {assigned item} of {this}
+atp.OrderLine.assignedWarehouse#phrase.action = set the assigned warehouse of {this} to {assigned warehouse}
+atp.OrderLine.assignedWarehouse#phrase.navigation = {assigned warehouse} of {this}
+atp.OrderLine.atpAllocs#phrase.action = set the atp allocs of {this} to {atp alloc}
+atp.OrderLine.atpAllocs#phrase.navigation = {atp alloc} of {this}
+atp.OrderLine.fulfilled#phrase.action = make it {fulfilled} that {this} is fulfilled
+atp.OrderLine.fulfilled#phrase.navigation = {this} is fulfilled
+atp.OrderLine.itemGroup#phrase.action = set the item group of {this} to {item group}
+atp.OrderLine.itemGroup#phrase.navigation = {item group} of {this}
+atp.OrderLine.itemId#phrase.action = set the item id of {this} to {item id}
+atp.OrderLine.itemId#phrase.navigation = {item id} of {this}
+atp.OrderLine.itemKey#phrase.action = set the item key of {this} to {item key}
+atp.OrderLine.itemKey#phrase.navigation = {item key} of {this}
+atp.OrderLine.orderDate#phrase.action = set the order date of {this} to {order date}
+atp.OrderLine.orderDate#phrase.navigation = {order date} of {this}
+atp.OrderLine.orderQty#phrase.action = set the order qty of {this} to {order qty}
+atp.OrderLine.orderQty#phrase.navigation = {order qty} of {this}
+atp.OrderLine.unmetQty#phrase.action = set the unmet qty of {this} to {unmet qty}
+atp.OrderLine.unmetQty#phrase.navigation = {unmet qty} of {this}
+atp.OrderLine.wareHouse#phrase.action = set the ware house of {this} to {ware house}
+atp.OrderLine.wareHouse#phrase.navigation = {ware house} of {this}
+atp.OrderLine.warehouseGroup#phrase.action = set the warehouse group of {this} to {warehouse group}
+atp.OrderLine.warehouseGroup#phrase.navigation = {warehouse group} of {this}
+
+# atp.OrderSortService
+atp.OrderSortService#concept.label = order sort service
+atp.OrderSortService.addSortRule(int,atp.FieldNameDomain,atp.SortDirection)#phrase.action = {this}.addSortRule({0}, {1}, {2})
+atp.OrderSortService.sortOrders(atp.AtpUpdateService)#phrase.action = {this}.sortOrders({0})
+atp.OrderSortService.sortRules#phrase.action = set the sort rules of {this} to {sort rule}
+atp.OrderSortService.sortRules#phrase.navigation = {sort rule} of {this}
+
+# atp.ShipmentRequirement
+atp.ShipmentRequirement#concept.label = shipment requirement
+
+# atp.ShipmentRequirement.OrderDetail
+atp.ShipmentRequirement.OrderDetail#concept.label = order detail
+atp.ShipmentRequirement.OrderDetail.orderNo#phrase.action = set the order no of {this} to {order no}
+atp.ShipmentRequirement.OrderDetail.orderNo#phrase.navigation = {order no} of {this}
+atp.ShipmentRequirement.OrderDetail.unmetQty#phrase.action = set the unmet qty of {this} to {unmet qty}
+atp.ShipmentRequirement.OrderDetail.unmetQty#phrase.navigation = {unmet qty} of {this}
+atp.ShipmentRequirement.canFulfill#phrase.action = make it {can fulfill} that {this} is can fulfill
+atp.ShipmentRequirement.canFulfill#phrase.navigation = {this} is can fulfill
+atp.ShipmentRequirement.daysOverdue#phrase.action = set the days overdue of {this} to {days overdue}
+atp.ShipmentRequirement.daysOverdue#phrase.navigation = {days overdue} of {this}
+atp.ShipmentRequirement.estimatedDeliveryDate#phrase.action = set the estimated delivery date of {this} to {estimated delivery date}
+atp.ShipmentRequirement.estimatedDeliveryDate#phrase.navigation = {estimated delivery date} of {this}
+atp.ShipmentRequirement.itemId#phrase.action = set the item id of {this} to {item id}
+atp.ShipmentRequirement.itemId#phrase.navigation = {item id} of {this}
+atp.ShipmentRequirement.orderByDate#phrase.action = set the order by date of {this} to {order by date}
+atp.ShipmentRequirement.orderByDate#phrase.navigation = {order by date} of {this}
+atp.ShipmentRequirement.orderDetails#phrase.action = set the order details of {this} to {order detail}
+atp.ShipmentRequirement.orderDetails#phrase.navigation = {order detail} of {this}
+atp.ShipmentRequirement.requiredDate#phrase.action = set the required date of {this} to {required date}
+atp.ShipmentRequirement.requiredDate#phrase.navigation = {required date} of {this}
+atp.ShipmentRequirement.requiredQty#phrase.action = set the required qty of {this} to {required qty}
+atp.ShipmentRequirement.requiredQty#phrase.navigation = {required qty} of {this}
+atp.ShipmentRequirement.warehouse#phrase.action = set the warehouse of {this} to {warehouse}
+atp.ShipmentRequirement.warehouse#phrase.navigation = {warehouse} of {this}
+
+# atp.ShipmentRequirementService
+atp.ShipmentRequirementService#concept.label = shipment requirement service
+atp.ShipmentRequirementService.calculateShipmentRequirements(atp.AtpUpdateService)#phrase.action = {this}.calculateShipmentRequirements({0})
+
+# atp.SortDirection
+atp.SortDirection#concept.label = sort direction
+atp.SortDirection.ASC#instance.label = ASC
+atp.SortDirection.DESC#instance.label = DESC
+atp.SortDirection.displayName#phrase.navigation = {display name} of {this}
+
+# atp.SortRule
+atp.SortRule#concept.label = sort rule
+atp.SortRule.direction#phrase.action = set the direction of {this} to {direction}
+atp.SortRule.direction#phrase.navigation = {direction} of {this}
+atp.SortRule.fieldName#phrase.action = set the field name of {this} to {field name}
+atp.SortRule.fieldName#phrase.navigation = {field name} of {this}
+atp.SortRule.sortOrder#phrase.action = set the sort order of {this} to {sort order}
+atp.SortRule.sortOrder#phrase.navigation = {sort order} of {this}

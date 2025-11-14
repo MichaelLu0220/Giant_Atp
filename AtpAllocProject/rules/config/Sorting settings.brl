@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Sorting settings</name>
+  <uuid>743c6e33-1979-4f93-8986-dbdb1ee915d4</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[then
+    'Sorting service' .addSortRule ( 1 , REQDATE , ASC ) ;
+    'Sorting service' .addSortRule ( 2 , CREATEDATE  , ASC ) ;
+    'Sorting service' .addSortRule ( 3 , QTY  , DESC  ) ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

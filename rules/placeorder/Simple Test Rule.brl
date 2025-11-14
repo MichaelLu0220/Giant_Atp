@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
-  <name>Simple Test Rule</name>
-  <uuid>11dff466-4164-4009-a164-a084f67e59ce</uuid>
-  <locale>en_US</locale>
-  <definition><![CDATA[then
-	for each order line in the order lines of 'the current order' : 
-	- allocate ATP forward for this order line of 'the current order' from 'the ATP profile' ; ]]></definition>
-</ilog.rules.studio.model.brl:ActionRule>

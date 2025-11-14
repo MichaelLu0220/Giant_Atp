@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Calculate the promised date</name>
+  <uuid>7f632b77-a881-459c-a6b8-6ae42b7b124e</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+    set 'NewOrder' to an order in the arrived orders of 'Order overview' ;
+if
+    NewOrder is fulfilled
+then
+    calculatePromise NewOrder ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

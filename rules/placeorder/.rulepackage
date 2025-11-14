@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ilog.rules.studio.model.base:RulePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
-  <name>placeorder</name>
-  <uuid>85df7b1f-a772-4246-8514-b8dd22ba8d40</uuid>
-</ilog.rules.studio.model.base:RulePackage>

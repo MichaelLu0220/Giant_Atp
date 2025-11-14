@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>parameters</name>
+  <uuid>07e89aad-1d09-41f6-b9b7-ad0197e91a24</uuid>
+  <variables name="atpShipment" type="atp.ShipmentRequirementService" initialValue="new atp.ShipmentRequirementService()" verbalization="Shipping requirements"/>
+  <variables name="atpItem" type="atp.ItemSubstitutionService" initialValue="new atp.ItemSubstitutionService(atpProfile)" verbalization="Substitute items services"/>
+  <variables name="atpSort" type="atp.OrderSortService" initialValue="new atp.OrderSortService()" verbalization="Sorting service"/>
+  <variables name="atpUpdate" type="atp.AtpUpdateService" initialValue="new atp.AtpUpdateService()" verbalization="Order overview"/>
+  <variables name="atpProfile" type="atp.AtpProfileService" initialValue="new atp.AtpProfileService()" verbalization="Warehouse overview"/>
+</ilog.rules.studio.model.base:VariableSet>

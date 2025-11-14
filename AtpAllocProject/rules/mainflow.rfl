@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>mainflow</name>
+  <uuid>61157ccb-6f6d-4d05-b406-b7194c5ba6cd</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0"/>
+      <ActionTask Identifier="Initialization">
+        <Actions Language="bal"><![CDATA[ initialize 'Warehouse overview' ; ]]></Actions>
+      </ActionTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Order sorting settings" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="743c6e33-1979-4f93-8986-dbdb1ee915d4"/>
+        </RuleList>
+      </RuleTask>
+      <ActionTask Identifier="Execute order sorting">
+        <Actions Language="bal"><![CDATA[ 'Sorting service' .sortOrders( 'Order overview' ) ; ]]></Actions>
+      </ActionTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Customer priority settings" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="1024d4c3-a881-4578-9d67-8246744ca35e"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Alternative warehouse settings" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="def2d8b5-0c8e-4b2b-92d9-91e2f045c283"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Alternative product settings" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="46305f73-fdd1-4ace-9299-fad12834468e"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="High priority assignment" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="f8ad7efe-ab93-43bc-a0c5-72f1e6d50d7e"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Middle priority assignment" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="d8fb25a2-c238-4591-8fdd-3fd6a469a03e"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Low priority assignment" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="63c5a03d-1b89-43b4-a3fa-4dba40fb9573"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Calculate the promised date" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="7f632b77-a881-459c-a6b8-6ae42b7b124e"/>
+        </RuleList>
+      </RuleTask>
+      <ActionTask Identifier="Calculate Shipment Requirements">
+        <Actions Language="bal"><![CDATA[  'Shipping requirements' .calculateShipmentRequirements( 'Order overview' ) ; ]]></Actions>
+      </ActionTask>
+      <StopTask Identifier="task_12"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node2" Task="task_0"/>
+      <TaskNode Identifier="node3" Task="Initialization"/>
+      <TaskNode Identifier="node4" Task="Order sorting settings"/>
+      <TaskNode Identifier="node7" Task="Execute order sorting"/>
+      <TaskNode Identifier="node9" Task="Customer priority settings"/>
+      <TaskNode Identifier="node11" Task="Alternative warehouse settings"/>
+      <TaskNode Identifier="node12" Task="Alternative product settings"/>
+      <TaskNode Identifier="node15" Task="High priority assignment"/>
+      <TaskNode Identifier="node16" Task="Middle priority assignment"/>
+      <TaskNode Identifier="node17" Task="Low priority assignment"/>
+      <TaskNode Identifier="node18" Task="Calculate the promised date"/>
+      <TaskNode Identifier="node19" Task="Calculate Shipment Requirements"/>
+      <ForkNode Identifier="node27"/>
+      <JoinNode Identifier="node31"/>
+      <TaskNode Identifier="node34" Task="task_12"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="link5" Source="node2" Target="node3"/>
+      <Transition Identifier="link6" Source="node3" Target="node4"/>
+      <Transition Identifier="link8" Source="node4" Target="node7"/>
+      <Transition Identifier="link10" Source="node7" Target="node9"/>
+      <Transition Identifier="link13" Source="node9" Target="node11"/>
+      <Transition Identifier="link14" Source="node11" Target="node12"/>
+      <Transition Identifier="link20" Source="node12" Target="node15"/>
+      <Transition Identifier="link21" Source="node15" Target="node16"/>
+      <Transition Identifier="link22" Source="node16" Target="node17"/>
+      <Transition Identifier="link28" Source="node17" Target="node27"/>
+      <Transition Identifier="link29" Source="node27" Target="node18"/>
+      <Transition Identifier="link30" Source="node27" Target="node19"/>
+      <Transition Identifier="link32" Source="node18" Target="node31"/>
+      <Transition Identifier="link33" Source="node19" Target="node31"/>
+      <Transition Identifier="link35" Source="node31" Target="node34"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node18#y">860.0</Data>
+      <Data Name="node19#x">122.325</Data>
+      <Data Name="node17#y">730.0</Data>
+      <Data Name="node18#x">392.831</Data>
+      <Data Name="node16#y">650.0</Data>
+      <Data Name="node17#x">257.577</Data>
+      <Data Name="node15#y">570.0</Data>
+      <Data Name="node16#x">257.577</Data>
+      <Data Name="node15#x">257.577</Data>
+      <Data Name="node12#y">490.0</Data>
+      <Data Name="node3#label">Initialization</Data>
+      <Data Name="node11#y">410.0</Data>
+      <Data Name="node12#x">257.577</Data>
+      <Data Name="node11#x">257.577</Data>
+      <Data Name="node27#x">257.577</Data>
+      <Data Name="node27#y">795.0</Data>
+      <Data Name="node3#y">90.0</Data>
+      <Data Name="node4#x">257.577</Data>
+      <Data Name="node2#y">15.0</Data>
+      <Data Name="node3#x">257.577</Data>
+      <Data Name="node2#x">257.577</Data>
+      <Data Name="node9#y">330.0</Data>
+      <Data Name="node9#x">257.577</Data>
+      <Data Name="node7#y">250.0</Data>
+      <Data Name="node7#x">257.577</Data>
+      <Data Name="node4#y">170.0</Data>
+      <Data Name="node31#x">257.577</Data>
+      <Data Name="node31#y">925.0</Data>
+      <Data Name="node34#x">257.577</Data>
+      <Data Name="node34#y">985.0</Data>
+      <Data Name="node19#y">860.0</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties/>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

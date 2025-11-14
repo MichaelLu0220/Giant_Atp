@@ -1,0 +1,227 @@
+
+property origin "xom:/AtpAllocProject//AtpXOM"
+property uuid "fb2241d4-c688-47af-88e6-1a6c00025af6"
+package atp;
+
+
+class AtpAlloc
+        extends java.io.Serializable
+{
+    int allocQty;
+    string itemId;
+    java.util.Date orderDate;
+    string orderNo;
+    java.util.Date supplyDate;
+    string supplyType;
+    string warehouse;
+    AtpAlloc(java.util.Date arg1, java.util.Date arg2, string arg3, int arg4, string arg5, string arg6, string arg7)
+                throws java.text.ParseException;
+    AtpAlloc()
+                throws java.text.ParseException;
+}
+
+class AtpProfileService
+        extends java.io.Serializable
+{
+    java.util.List items domain 0,* class atp.Item;
+    AtpProfileService()
+                throws java.text.ParseException;
+    void allocateAtpBackwardFromDueDay(atp.Order arg1, atp.OrderLine arg2);
+    void allocateAtpBackwardWithEarlyDays(atp.Order arg1, atp.OrderLine arg2, int arg3);
+    void allocateAtpForwardUnlimited(atp.Order arg1, atp.OrderLine arg2);
+    void allocateAtpForwardWithLateDays(atp.Order arg1, atp.OrderLine arg2, int arg3);
+    atp.Item findItem(string arg);
+    void initialize();
+}
+
+class AtpUpdateService
+        extends java.io.Serializable
+{
+    java.util.List arrivedOrders domain 0,* class atp.Order;
+    int fulfilledOrderLineNumber;
+    int fulfilledOrderNumber;
+    int orderLineNumber;
+    int orderNumber;
+    int orderNumberHigh;
+    int orderNumberLow;
+    int orderNumberMiddle;
+    java.util.List shipmentRequirements domain 0,* class atp.ShipmentRequirement;
+    AtpUpdateService()
+                throws java.text.ParseException;
+    void addShipmentRequirement(atp.ShipmentRequirement arg);
+}
+
+class DateUtil
+        extends java.io.Serializable
+{
+    DateUtil()
+                throws java.text.ParseException;
+    static java.util.Date addDays(java.util.Date arg1, int arg2);
+    static java.util.Date dateAsDay(java.util.Date arg);
+    static string format(java.util.Date arg);
+    static int getDuration(java.util.Date arg1, java.util.Date arg2);
+    static java.util.Iterator iterator(java.util.Date arg1, java.util.Date arg2);
+    static java.util.Date makeDate(int arg1, int arg2, int arg3);
+    static java.util.Date now();
+}
+
+final class FieldNameDomain
+        extends java.lang.Enum
+{
+    domain {static PRIORITY, static REQDATE, static CREATEDATE, static QTY, static CUSTACCOUNT, static ORDERNO}
+    static final readonly atp.FieldNameDomain CREATEDATE;
+    static final readonly atp.FieldNameDomain CUSTACCOUNT;
+    static final readonly atp.FieldNameDomain ORDERNO;
+    static final readonly atp.FieldNameDomain PRIORITY;
+    static final readonly atp.FieldNameDomain QTY;
+    static final readonly atp.FieldNameDomain REQDATE;
+    readonly string displayName;
+    string toString();
+    static atp.FieldNameDomain valueOf(string arg);
+    static atp.FieldNameDomain[] values();
+}
+
+class Item
+        extends java.io.Serializable
+{
+    string itemId;
+    string itemKey;
+    java.util.List supplies domain 0,* class atp.ItemSupply;
+    string wareHouse;
+    Item()
+                throws java.text.ParseException;
+}
+
+class ItemSubstitutionService
+{
+    ItemSubstitutionService(atp.AtpProfileService arg);
+    ItemSubstitutionService()
+                throws java.text.ParseException;
+    boolean allocateWithSubstitution(atp.Order arg);
+}
+
+class ItemSupply
+        extends java.io.Serializable
+{
+    readonly int allocQty;
+    java.util.List atpAllocs domain 0,* class atp.AtpAlloc;
+    boolean exhausted;
+    int remainQty;
+    java.util.Date supplyDate;
+    int supplyQty;
+    string type;
+    ItemSupply()
+                throws java.text.ParseException;
+    void addAtpAlloc(atp.AtpAlloc arg);
+    void removeAtpAlloc(atp.AtpAlloc arg);
+}
+
+class Order
+        extends java.io.Serializable
+{
+    java.util.Date createDate;
+    string custAccount;
+    int custPriority;
+    boolean fulfilled;
+    java.util.List orderLines domain 0,* class atp.OrderLine;
+    string orderNo;
+    java.util.Date promiseDate;
+    java.util.Date requestDate;
+    Order()
+                throws java.text.ParseException;
+    void calculatePromise();
+}
+
+class OrderLine
+        extends java.io.Serializable
+{
+    int allocQty;
+    boolean allowSubstitution;
+    java.util.List alternativeItems domain 0,* class string;
+    java.util.List alternativeWarehouses domain 0,* class string;
+    string assignedItem;
+    string assignedWarehouse;
+    java.util.List atpAllocs domain 0,* class atp.AtpAlloc;
+    boolean fulfilled;
+    string itemGroup;
+    string itemId;
+    string itemKey;
+    java.util.Date orderDate;
+    int orderQty;
+    int unmetQty;
+    string wareHouse;
+    string warehouseGroup;
+    OrderLine()
+                throws java.text.ParseException;
+    void addAtpAlloc(atp.AtpAlloc arg);
+    java.util.List doCandidateItems() domain 0,* class string;
+    java.util.List doCandidateWarehouses() domain 0,* class string;
+    void removeAllAtps();
+    void removeAtpAlloc(atp.AtpAlloc arg);
+}
+
+class OrderSortService
+{
+    java.util.List sortRules domain 0,* class atp.SortRule;
+    OrderSortService()
+                throws java.text.ParseException;
+    void addSortRule(int arg1, atp.FieldNameDomain arg2, atp.SortDirection arg3);
+    void clearSortRules();
+    void sortOrders(atp.AtpUpdateService arg);
+}
+
+class ShipmentRequirement
+        extends java.io.Serializable
+{
+
+    static class OrderDetail
+            extends java.io.Serializable
+    {
+        string orderNo;
+        int unmetQty;
+        OrderDetail();
+    }
+    boolean canFulfill;
+    int daysOverdue;
+    java.util.Date estimatedDeliveryDate;
+    string itemId;
+    java.util.Date orderByDate;
+    java.util.List orderDetails domain 0,* class atp.ShipmentRequirement.OrderDetail;
+    java.util.Date requiredDate;
+    int requiredQty;
+    string warehouse;
+    ShipmentRequirement();
+    void addOrderDetail(string arg1, int arg2);
+}
+
+class ShipmentRequirementService
+        extends java.io.Serializable
+{
+    ShipmentRequirementService()
+                throws java.text.ParseException;
+    void calculateShipmentRequirements(atp.AtpUpdateService arg);
+}
+
+final class SortDirection
+        extends java.lang.Enum
+{
+    domain {static ASC, static DESC}
+    static final readonly atp.SortDirection ASC;
+    static final readonly atp.SortDirection DESC;
+    readonly string displayName;
+    string toString();
+    static atp.SortDirection valueOf(string arg);
+    static atp.SortDirection[] values();
+}
+
+class SortRule
+        extends java.io.Serializable
+{
+    atp.SortDirection direction;
+    atp.FieldNameDomain fieldName;
+    int sortOrder;
+    SortRule(int arg1, atp.FieldNameDomain arg2, atp.SortDirection arg3);
+    SortRule();
+    string toString();
+}
+
